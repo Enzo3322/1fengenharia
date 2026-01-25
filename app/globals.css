@@ -4,75 +4,75 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color palette to gray and yellow theme for electrical engineering company */
-  --background: oklch(1 0 0); /* White background */
-  --foreground: oklch(0.3 0 0); /* Dark gray text */
-  --card: oklch(0.98 0.02 85); /* Light yellow/cream for cards */
-  --card-foreground: oklch(0.3 0 0); /* Dark gray text on cards */
+  /* White Corporate Theme - Gold, Black, White */
+  --background: oklch(1 0 0); /* Pure white */
+  --foreground: oklch(0.15 0 0); /* Near-black text */
+  --card: oklch(0.98 0.005 85); /* Very light warm white */
+  --card-foreground: oklch(0.15 0 0);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.3 0 0);
-  --primary: oklch(0.55 0.15 85); /* Yellow primary color */
-  --primary-foreground: oklch(1 0 0); /* White text on primary */
-  --secondary: oklch(0.5 0 0); /* Medium gray */
-  --secondary-foreground: oklch(1 0 0); /* White text on secondary */
-  --muted: oklch(0.96 0.01 85); /* Very light yellow/cream */
+  --popover-foreground: oklch(0.15 0 0);
+  --primary: oklch(0.7 0.12 85); /* Gold */
+  --primary-foreground: oklch(0.1 0 0); /* Dark text on gold */
+  --secondary: oklch(0.12 0 0); /* Near-black for contrast sections */
+  --secondary-foreground: oklch(0.97 0 0); /* White text on dark */
+  --muted: oklch(0.96 0.005 85); /* Light warm gray */
   --muted-foreground: oklch(0.45 0 0); /* Medium gray text */
-  --accent: oklch(0.55 0.15 85); /* Yellow accent */
-  --accent-foreground: oklch(1 0 0);
+  --accent: oklch(0.82 0.15 90); /* Bright yellow */
+  --accent-foreground: oklch(0.1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9 0.01 85); /* Light gray/yellow border */
-  --input: oklch(0.98 0.01 85); /* Light input background */
-  --ring: oklch(0.55 0.15 85); /* Yellow focus ring */
-  --chart-1: oklch(0.55 0.15 85);
-  --chart-2: oklch(0.5 0 0);
-  --chart-3: oklch(0.3 0 0);
-  --chart-4: oklch(0.96 0.01 85);
+  --border: oklch(0.9 0.005 85); /* Light warm border */
+  --input: oklch(0.96 0.005 85);
+  --ring: oklch(0.7 0.12 85); /* Gold ring */
+  --chart-1: oklch(0.7 0.12 85);
+  --chart-2: oklch(0.82 0.15 90);
+  --chart-3: oklch(0.45 0 0);
+  --chart-4: oklch(0.96 0.005 85);
   --chart-5: oklch(1 0 0);
   --radius: 0.5rem;
-  --sidebar: oklch(0.98 0.02 85);
-  --sidebar-foreground: oklch(0.3 0 0);
-  --sidebar-primary: oklch(0.55 0.15 85);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.5 0 0);
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.9 0.01 85);
-  --sidebar-ring: oklch(0.55 0.15 85);
+  --sidebar: oklch(0.98 0.005 85);
+  --sidebar-foreground: oklch(0.15 0 0);
+  --sidebar-primary: oklch(0.7 0.12 85);
+  --sidebar-primary-foreground: oklch(0.1 0 0);
+  --sidebar-accent: oklch(0.12 0 0);
+  --sidebar-accent-foreground: oklch(0.97 0 0);
+  --sidebar-border: oklch(0.9 0.005 85);
+  --sidebar-ring: oklch(0.7 0.12 85);
 }
 
 .dark {
-  --background: oklch(0.15 0 0);
+  --background: oklch(0.05 0 0);
   --foreground: oklch(0.95 0 0);
-  --card: oklch(0.18 0.01 85);
+  --card: oklch(0.08 0 0);
   --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.15 0 0);
+  --popover: oklch(0.05 0 0);
   --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.65 0.15 85);
-  --primary-foreground: oklch(0.15 0 0);
-  --secondary: oklch(0.25 0 0);
+  --primary: oklch(0.75 0.12 85);
+  --primary-foreground: oklch(0.05 0 0);
+  --secondary: oklch(0.1 0 0);
   --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.22 0.01 85);
+  --muted: oklch(0.08 0 0);
   --muted-foreground: oklch(0.7 0 0);
-  --accent: oklch(0.65 0.15 85);
-  --accent-foreground: oklch(0.15 0 0);
+  --accent: oklch(0.82 0.15 90);
+  --accent-foreground: oklch(0.05 0 0);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.25 0.01 85);
-  --input: oklch(0.22 0.01 85);
-  --ring: oklch(0.65 0.15 85);
-  --chart-1: oklch(0.65 0.15 85);
-  --chart-2: oklch(0.7 0 0);
+  --border: oklch(0.15 0 0);
+  --input: oklch(0.1 0 0);
+  --ring: oklch(0.75 0.12 85);
+  --chart-1: oklch(0.75 0.12 85);
+  --chart-2: oklch(0.82 0.15 90);
   --chart-3: oklch(0.5 0 0);
-  --chart-4: oklch(0.22 0.01 85);
-  --chart-5: oklch(0.15 0 0);
-  --sidebar: oklch(0.18 0.01 85);
+  --chart-4: oklch(0.1 0 0);
+  --chart-5: oklch(0.05 0 0);
+  --sidebar: oklch(0.08 0 0);
   --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.65 0.15 85);
-  --sidebar-primary-foreground: oklch(0.15 0 0);
-  --sidebar-accent: oklch(0.25 0 0);
+  --sidebar-primary: oklch(0.75 0.12 85);
+  --sidebar-primary-foreground: oklch(0.05 0 0);
+  --sidebar-accent: oklch(0.1 0 0);
   --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.25 0.01 85);
-  --sidebar-ring: oklch(0.65 0.15 85);
+  --sidebar-border: oklch(0.15 0 0);
+  --sidebar-ring: oklch(0.75 0.12 85);
 }
 
 @theme inline {
@@ -114,6 +114,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-gold: oklch(0.7 0.12 85);
+  --color-gold-light: oklch(0.82 0.15 90);
 }
 
 @layer base {
@@ -123,4 +125,23 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Gold glow effect */
+.gold-glow {
+  box-shadow: 0 0 20px oklch(0.7 0.12 85 / 0.15);
+}
+
+.gold-glow-lg {
+  box-shadow: 0 0 40px oklch(0.7 0.12 85 / 0.2);
+}
+
+/* Gold gradient border */
+.gold-border-top {
+  border-top: 2px solid oklch(0.7 0.12 85);
+}
+
+/* Subtle gold gradient */
+.gold-gradient {
+  background: linear-gradient(135deg, oklch(0.7 0.12 85), oklch(0.82 0.15 90));
 }

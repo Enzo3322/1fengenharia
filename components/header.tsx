@@ -1,43 +1,48 @@
-import { Button } from "@/components/ui/button";
 import { Phone, Mail } from "lucide-react";
 import Link from "next/link";
 
 export function Header() {
   return (
-    <header className="bg-background border-b border-border sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-2">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-xl">
-              ⚡
-            </span>
-          </div>
+    <header className="bg-background/95 backdrop-blur-sm border-b border-primary/20 sticky top-0 z-50">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="flex items-center space-x-3">
+          <img
+            src="/logo.png"
+            alt="2f Engenharia Elétrica"
+            className="w-10 h-10 object-contain"
+          />
           <div>
-            <h1 className="text-xl font-bold text-foreground">
+            <h1 className="text-lg font-bold text-foreground tracking-tight">
               2f Engenharia Elétrica
             </h1>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs text-primary font-medium">
               Soluções Elétricas Profissionais
             </p>
           </div>
         </div>
 
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-8">
           <a
             href="#servicos"
-            className="text-foreground hover:text-primary transition-colors"
+            className="text-sm font-medium text-foreground hover:text-primary transition-colors"
           >
             Serviços
           </a>
           <a
             href="#sobre"
-            className="text-foreground hover:text-primary transition-colors"
+            className="text-sm font-medium text-foreground hover:text-primary transition-colors"
           >
             Sobre
           </a>
           <a
+            href="#projetos"
+            className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+          >
+            Projetos
+          </a>
+          <a
             href="#contato"
-            className="text-foreground hover:text-primary transition-colors"
+            className="text-sm font-medium text-foreground hover:text-primary transition-colors"
           >
             Contato
           </a>
@@ -45,23 +50,25 @@ export function Header() {
 
         <div className="flex items-center space-x-4">
           <div className="hidden lg:flex items-center space-x-4 text-sm">
-            <div className="flex items-center space-x-1">
-              <Phone className="w-4 h-4 text-primary" />
-              <span className="text-foreground">
-                <a href="tel:(13) 99147-5064">(13) 99147-5064</a>
-              </span>
-            </div>
-            <div className="flex items-center space-x-1">
-              <Mail className="w-4 h-4 text-primary" />
-              <span className="text-foreground">
-                2fengenhariaeletrica@gmail.com
-              </span>
-            </div>
+            <a
+              href="tel:+5513991475064"
+              className="flex items-center space-x-1.5 text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              <span>(13) 99147-5064</span>
+            </a>
+            <a
+              href="mailto:2fengenhariaeletrica@gmail.com"
+              className="flex items-center space-x-1.5 text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5" />
+              <span>2fengenhariaeletrica@gmail.com</span>
+            </a>
           </div>
           <Link
-            href={`https://wa.me/5513991475064`}
+            href="https://wa.me/5513991475064"
             target="_blank"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 p-2 rounded-md"
+            className="gold-gradient text-primary-foreground font-semibold px-5 py-2 rounded-md text-sm hover:opacity-90 transition-opacity"
           >
             Orçamento Grátis
           </Link>

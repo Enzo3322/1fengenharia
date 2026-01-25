@@ -1,19 +1,22 @@
-import { Button } from "@/components/ui/button";
-import { CheckCircle, Zap, Shield, Clock } from "lucide-react";
+import { CheckCircle, Shield, Clock, Zap } from "lucide-react";
 import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="bg-gradient-to-br from-background to-muted py-20">
+    <section className="bg-gradient-to-b from-background to-muted py-24">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <div className="space-y-4">
+              <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium">
+                <Zap className="w-4 h-4" />
+                <span>Engenharia Elétrica de Confiança</span>
+              </div>
               <h1 className="text-4xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
                 Soluções Elétricas
                 <span className="text-primary block">Profissionais</span>
               </h1>
-              <p className="text-xl text-muted-foreground text-pretty">
+              <p className="text-lg text-muted-foreground text-pretty max-w-lg">
                 Especialistas em instalações elétricas prediais e residenciais,
                 sistemas de segurança e projetos técnicos com mais de 10 anos de
                 experiência.
@@ -22,49 +25,66 @@ export function HeroSection() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="flex items-center space-x-2">
-                <CheckCircle className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium">Licenciado CREA</span>
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                  <CheckCircle className="w-4 h-4 text-primary" />
+                </div>
+                <span className="text-sm font-medium text-foreground">
+                  Licenciado CREA
+                </span>
               </div>
               <div className="flex items-center space-x-2">
-                <Shield className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium">Garantia Total</span>
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Shield className="w-4 h-4 text-primary" />
+                </div>
+                <span className="text-sm font-medium text-foreground">
+                  Garantia Total
+                </span>
               </div>
               <div className="flex items-center space-x-2">
-                <Clock className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium">Atendimento 24h</span>
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Clock className="w-4 h-4 text-primary" />
+                </div>
+                <span className="text-sm font-medium text-foreground">
+                  Atendimento 24h
+                </span>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href={`https://wa.me/5513991475064`}
+                href="https://wa.me/5513991475064"
                 target="_blank"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center justify-center p-2 rounded-md"
+                className="gold-gradient text-primary-foreground font-semibold flex items-center justify-center px-8 py-3 rounded-md hover:opacity-90 transition-opacity"
               >
                 <Zap className="w-5 h-5 mr-2" />
                 Solicitar Orçamento
               </Link>
-              {/* <Button
-                size="lg"
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+              <a
+                href="#projetos"
+                className="border-2 border-primary text-primary font-semibold flex items-center justify-center px-8 py-3 rounded-md hover:bg-primary/10 transition-colors"
               >
                 Ver Nossos Projetos
-              </Button> */}
+              </a>
             </div>
           </div>
 
-          <div className="relative">
-            <div className="aspect-square bg-card rounded-2xl p-8 shadow-lg">
-              <img
-                src="/logo.png"
-                alt="Profissional realizando instalação elétrica"
-                className="w-full h-full object-cover rounded-lg"
-              />
-            </div>
-            <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-4 rounded-lg shadow-lg">
-              <div className="text-2xl font-bold">10+</div>
-              <div className="text-sm">Anos de Experiência</div>
+          <div className="relative flex justify-center">
+            <div className="relative">
+              <div className="w-72 h-72 lg:w-96 lg:h-96 rounded-2xl bg-card border border-border p-6 shadow-lg gold-glow flex items-center justify-center">
+                <img
+                  src="/logo.png"
+                  alt="2f Engenharia Elétrica"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="absolute -bottom-4 -left-4 gold-gradient text-primary-foreground px-5 py-3 rounded-lg shadow-lg">
+                <div className="text-2xl font-bold">10+</div>
+                <div className="text-sm font-medium">Anos de Experiência</div>
+              </div>
+              <div className="absolute -top-4 -right-4 bg-card border border-primary/30 text-foreground px-4 py-2 rounded-lg shadow-lg">
+                <div className="text-lg font-bold text-primary">500+</div>
+                <div className="text-xs text-muted-foreground">Projetos</div>
+              </div>
             </div>
           </div>
         </div>

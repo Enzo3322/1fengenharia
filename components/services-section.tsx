@@ -5,7 +5,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Zap, Camera, FileText, Home, Building } from "lucide-react";
 
 const services = [
@@ -64,10 +63,13 @@ export function ServicesSection() {
     <section id="servicos" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center space-y-4 mb-16">
+          <span className="text-primary font-semibold text-sm uppercase tracking-widest">
+            O que fazemos
+          </span>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground text-balance">
             Nossos Serviços Especializados
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
             Oferecemos soluções completas em engenharia elétrica com qualidade e
             segurança garantidas
           </p>
@@ -77,16 +79,16 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="bg-card border-border hover:shadow-lg transition-shadow"
+              className="bg-card border-border hover:border-primary/40 hover:shadow-lg transition-all gold-border-top"
             >
               <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <service.icon className="w-8 h-8 text-primary" />
+                <div className="w-14 h-14 gold-gradient rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <service.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
-                <CardTitle className="text-xl text-card-foreground">
+                <CardTitle className="text-lg text-card-foreground">
                   {service.title}
                 </CardTitle>
-                <CardDescription className="text-muted-foreground">
+                <CardDescription className="text-muted-foreground text-sm">
                   {service.description}
                 </CardDescription>
               </CardHeader>
@@ -97,7 +99,7 @@ export function ServicesSection() {
                       key={idx}
                       className="flex items-center space-x-2 text-sm"
                     >
-                      <Zap className="w-4 h-4 text-primary flex-shrink-0" />
+                      <Zap className="w-3.5 h-3.5 text-primary flex-shrink-0" />
                       <span className="text-card-foreground">{feature}</span>
                     </li>
                   ))}
