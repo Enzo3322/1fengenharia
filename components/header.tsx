@@ -12,16 +12,16 @@ export function Header() {
             className="w-10 h-10 object-contain"
           />
           <div>
-            <h1 className="text-lg font-bold text-foreground tracking-tight">
+            <span className="text-lg font-bold text-foreground tracking-tight">
               2f Engenharia Elétrica
-            </h1>
+            </span>
             <p className="text-xs text-primary font-medium">
               Soluções Elétricas Profissionais
             </p>
           </div>
         </div>
 
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav aria-label="Navegação principal" className="hidden md:flex items-center space-x-8">
           <a
             href="#servicos"
             className="text-sm font-medium text-foreground hover:text-primary transition-colors"
@@ -68,7 +68,9 @@ export function Header() {
           <Link
             href="https://wa.me/5513991475064"
             target="_blank"
-            className="gold-gradient text-primary-foreground font-semibold px-5 py-2 rounded-md text-sm hover:opacity-90 transition-opacity"
+            rel="noopener noreferrer"
+            aria-label="Solicitar orçamento grátis via WhatsApp"
+            className="gold-gradient text-primary-foreground font-semibold px-5 py-2 rounded-md text-sm hover:opacity-90 transition-opacity text-white"
           >
             Orçamento Grátis
           </Link>

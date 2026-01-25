@@ -97,13 +97,15 @@ export function ContactSection() {
               </p>
               <Link
                 href="tel:+5513991475064"
-                className="inline-block w-full bg-primary-foreground text-primary font-semibold py-3 rounded-md hover:bg-primary-foreground/90 transition-colors"
+                className="inline-block w-full bg-primary-foreground text-primary font-semibold py-3 rounded-md hover:bg-primary-foreground/90 transition-colors text-white"
               >
                 Ligar Agora: (13) 99147-5064
               </Link>
               <Link
                 href="https://wa.me/5513991475064"
                 target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Entrar em contato via WhatsApp"
                 className="inline-block w-full border-2 border-primary-foreground text-primary-foreground font-semibold py-3 rounded-md hover:bg-primary-foreground/10 transition-colors"
               >
                 WhatsApp

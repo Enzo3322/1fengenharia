@@ -1,0 +1,16 @@
+{
+  "name": "2f Engenharia Elétrica",
+  "short_name": "2f Engenharia",
+  "description": "Engenharia elétrica em São Paulo: instalações residenciais e prediais, câmeras de segurança, projetos técnicos e laudos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#D4A017",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

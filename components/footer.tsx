@@ -79,6 +79,8 @@ export function Footer() {
                 <a
                   href="https://www.instagram.com/2f_eng_eletrica_seguranca/"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Siga-nos no Instagram"
                   className="w-10 h-10 gold-gradient rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"
                 >
                   <Instagram className="w-5 h-5 text-primary-foreground" />
@@ -89,10 +91,21 @@ export function Footer() {
 
           <div className="border-t border-secondary-foreground/10 mt-10 pt-8 text-center text-sm text-secondary-foreground/50">
             <p>
-              &copy; 2024 2f Engenharia Elétrica. Todos os direitos reservados.
+              &copy; {new Date().getFullYear()} 2f Engenharia Elétrica. Todos os direitos reservados.
             </p>
             <p className="mt-2">
               CREA-SP: 123456789 | CNPJ: 12.345.678/0001-90
+            </p>
+            <p className="mt-3 text-secondary-foreground/40">
+              Desenvolvido por{" "}
+              <a
+                href="https://pantecnologia.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80 transition-colors"
+              >
+                pantecnologia.com
+              </a>
             </p>
           </div>
         </div>

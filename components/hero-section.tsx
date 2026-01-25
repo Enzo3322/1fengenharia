@@ -54,7 +54,9 @@ export function HeroSection() {
               <Link
                 href="https://wa.me/5513991475064"
                 target="_blank"
-                className="gold-gradient text-primary-foreground font-semibold flex items-center justify-center px-8 py-3 rounded-md hover:opacity-90 transition-opacity"
+                rel="noopener noreferrer"
+                aria-label="Solicitar orçamento via WhatsApp"
+                className="gold-gradient text-primary-foreground text-white font-semibold flex items-center justify-center px-8 py-3 rounded-md hover:opacity-90 transition-opacity"
               >
                 <Zap className="w-5 h-5 mr-2" />
                 Solicitar Orçamento
@@ -73,13 +75,13 @@ export function HeroSection() {
               <div className="w-72 h-72 lg:w-96 lg:h-96 rounded-2xl bg-card border border-border p-6 shadow-lg gold-glow flex items-center justify-center">
                 <img
                   src="/logo.png"
-                  alt="2f Engenharia Elétrica"
+                  alt="Logo 2f Engenharia Elétrica - Instalações elétricas profissionais em São Paulo"
                   className="w-full h-full object-contain"
                 />
               </div>
               <div className="absolute -bottom-4 -left-4 gold-gradient text-primary-foreground px-5 py-3 rounded-lg shadow-lg">
-                <div className="text-2xl font-bold">10+</div>
-                <div className="text-sm font-medium">Anos de Experiência</div>
+                <div className="text-2xl font-bold text-white">10+</div>
+                <div className="text-sm font-medium text-white">Anos de Experiência</div>
               </div>
               <div className="absolute -top-4 -right-4 bg-card border border-primary/30 text-foreground px-4 py-2 rounded-lg shadow-lg">
                 <div className="text-lg font-bold text-primary">500+</div>
