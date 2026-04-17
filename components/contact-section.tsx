@@ -1,119 +1,266 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock, Zap } from "lucide-react";
+"use client";
+
+import { FormEvent, useState } from "react";
 import Link from "next/link";
+import {
+  Clock,
+  Instagram,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Send,
+} from "lucide-react";
+
+type ServiceOption =
+  | "residencial"
+  | "predial"
+  | "cameras"
+  | "projeto"
+  | "emergencia"
+  | "outro";
+
+const serviceLabels: Record<ServiceOption, string> = {
+  residencial: "Instalação residencial",
+  predial: "Instalação predial / comercial",
+  cameras: "Câmeras e interfones",
+  projeto: "Projeto ou laudo técnico",
+  emergencia: "Emergência elétrica",
+  outro: "Outro",
+};
 
 export function ContactSection() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [service, setService] = useState<ServiceOption>("residencial");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const lines = [
+      `Olá! Meu nome é ${name || "(sem nome)"}.`,
+      `Serviço: ${serviceLabels[service]}.`,
+      phone ? `Telefone: ${phone}.` : null,
+      email ? `E-mail: ${email}.` : null,
+      message ? `\nDetalhes: ${message}` : null,
+    ]
+      .filter(Boolean)
+      .join("\n");
+    const url = `https://wa.me/5513991475064?text=${encodeURIComponent(lines)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
-    <section id="contato" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center space-y-4 mb-16">
-          <span className="text-primary font-semibold text-sm uppercase tracking-widest">
+    <section id="contato" className="py-20 sm:py-24 bg-slate-50">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="text-center max-w-2xl mx-auto space-y-3 mb-12 sm:mb-16">
+          <span className="text-[color:var(--color-blue)] font-semibold text-xs uppercase tracking-widest">
             Fale conosco
           </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground text-balance">
-            Entre em Contato Conosco
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 text-balance">
+            Peça seu orçamento gratuito
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Solicite seu orçamento gratuito e tire suas dúvidas com nossos
-            especialistas
+          <p className="text-base sm:text-lg text-slate-600 text-pretty">
+            Escolha o canal que preferir: WhatsApp, telefone ou o formulário
+            abaixo. Respondemos em minutos no horário comercial.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          <Card className="bg-card border-border">
-            <CardContent className="p-8 space-y-6">
-              <div className="flex items-center space-x-4">
-                <div className="w-10 h-10 gold-gradient rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <div>
-                  <div className="font-medium text-card-foreground">
-                    Telefone
-                  </div>
-                  <a
-                    href="tel:+5513991475064"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    (13) 99147-5064
-                  </a>
-                </div>
-              </div>
+        <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
+          <div className="rounded-3xl bg-white border border-slate-200 p-7 sm:p-8 space-y-6">
+            <ContactRow
+              icon={Phone}
+              title="Telefone"
+              value="(13) 99147-5064"
+              href="tel:+5513991475064"
+            />
+            <ContactRow
+              icon={MessageCircle}
+              title="WhatsApp"
+              value="Resposta em minutos"
+              href="https://wa.me/5513991475064"
+              external
+            />
+            <ContactRow
+              icon={Mail}
+              title="E-mail"
+              value="2fengenhariaeletrica@gmail.com"
+              href="mailto:2fengenhariaeletrica@gmail.com"
+            />
+            <ContactRow
+              icon={Clock}
+              title="Horário"
+              value="Seg-Sex 8h às 18h · Emergências 24h"
+            />
+            <ContactRow
+              icon={MapPin}
+              title="Área de atendimento"
+              value="Santos, Baixada Santista e São Paulo"
+            />
+            <ContactRow
+              icon={Instagram}
+              title="Instagram"
+              value="@2f_eng_eletrica_seguranca"
+              href="https://www.instagram.com/2f_eng_eletrica_seguranca/"
+              external
+            />
 
-              <div className="flex items-center space-x-4">
-                <div className="w-10 h-10 gold-gradient rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <div>
-                  <div className="font-medium text-card-foreground">E-mail</div>
-                  <a
-                    href="mailto:2fengenhariaeletrica@gmail.com"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    2fengenhariaeletrica@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-10 h-10 gold-gradient rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <div>
-                  <div className="font-medium text-card-foreground">
-                    Endereço
-                  </div>
-                  <div className="text-muted-foreground">São Paulo, SP</div>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-10 h-10 gold-gradient rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-5 h-5 text-primary-foreground" />
-                </div>
-                <div>
-                  <div className="font-medium text-card-foreground">
-                    Horário
-                  </div>
-                  <div className="text-muted-foreground">
-                    Seg-Sex: 8h às 18h
-                  </div>
-                  <div className="text-muted-foreground">Emergências: 24h</div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="gold-gradient border-0 flex flex-col justify-center">
-            <CardContent className="p-8 text-center space-y-6">
-              <div className="w-16 h-16 bg-primary-foreground/20 rounded-full flex items-center justify-center mx-auto">
-                <Zap className="w-8 h-8 text-primary-foreground" />
-              </div>
-              <h3 className="text-2xl font-bold text-primary-foreground">
-                Atendimento de Emergência
-              </h3>
-              <p className="text-primary-foreground/80 max-w-sm mx-auto">
-                Problemas elétricos urgentes? Estamos disponíveis 24 horas para
-                emergências.
-              </p>
+            <div className="pt-4">
               <Link
-                href="tel:+5513991475064"
-                className="inline-block w-full bg-primary-foreground text-primary font-semibold py-3 rounded-md hover:bg-primary-foreground/90 transition-colors text-white"
-              >
-                Ligar Agora: (13) 99147-5064
-              </Link>
-              <Link
-                href="https://wa.me/5513991475064"
+                href="https://wa.me/5513991475064?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Entrar em contato via WhatsApp"
-                className="inline-block w-full border-2 border-primary-foreground text-primary-foreground font-semibold py-3 rounded-md hover:bg-primary-foreground/10 transition-colors"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full btn-wa px-6 py-3.5 text-sm font-semibold shadow"
               >
-                WhatsApp
+                <MessageCircle className="h-4 w-4" />
+                Enviar mensagem agora
               </Link>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
+
+          <form
+            onSubmit={handleSubmit}
+            className="rounded-3xl bg-white border border-slate-200 p-7 sm:p-8 space-y-5"
+            aria-label="Formulário de orçamento"
+          >
+            <div className="grid gap-5 sm:grid-cols-2">
+              <Field label="Nome" htmlFor="name">
+                <input
+                  id="name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="field"
+                  placeholder="Seu nome completo"
+                />
+              </Field>
+              <Field label="Telefone" htmlFor="phone">
+                <input
+                  id="phone"
+                  type="tel"
+                  inputMode="tel"
+                  required
+                  autoComplete="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="field"
+                  placeholder="(DDD) 9XXXX-XXXX"
+                />
+              </Field>
+            </div>
+
+            <Field label="E-mail (opcional)" htmlFor="email">
+              <input
+                id="email"
+                type="email"
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="field"
+                placeholder="voce@exemplo.com"
+              />
+            </Field>
+
+            <Field label="Serviço desejado" htmlFor="service">
+              <select
+                id="service"
+                value={service}
+                onChange={(e) => setService(e.target.value as ServiceOption)}
+                className="field"
+              >
+                {(Object.keys(serviceLabels) as ServiceOption[]).map((k) => (
+                  <option key={k} value={k}>
+                    {serviceLabels[k]}
+                  </option>
+                ))}
+              </select>
+            </Field>
+
+            <Field label="Detalhes do projeto" htmlFor="message">
+              <textarea
+                id="message"
+                rows={4}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                className="field resize-none"
+                placeholder="Descreva brevemente o que você precisa (local, metragem, prazo)…"
+              />
+            </Field>
+
+            <button
+              type="submit"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[color:var(--color-blue)] px-6 py-3.5 text-sm font-semibold text-white shadow hover:bg-[color:var(--color-navy)] transition-colors"
+            >
+              <Send className="h-4 w-4" />
+              Enviar e continuar no WhatsApp
+            </button>
+            <p className="text-xs text-slate-500 text-center">
+              Ao enviar, você será direcionado ao WhatsApp com sua mensagem
+              preenchida.
+            </p>
+          </form>
         </div>
       </div>
     </section>
+  );
+}
+
+function Field({
+  label,
+  htmlFor,
+  children,
+}: {
+  label: string;
+  htmlFor: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <label htmlFor={htmlFor} className="block">
+      <span className="mb-1.5 block text-sm font-medium text-slate-800">
+        {label}
+      </span>
+      {children}
+    </label>
+  );
+}
+
+function ContactRow({
+  icon: Icon,
+  title,
+  value,
+  href,
+  external,
+}: {
+  icon: typeof Phone;
+  title: string;
+  value: string;
+  href?: string;
+  external?: boolean;
+}) {
+  const content = (
+    <div className="flex items-start gap-4">
+      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[color:var(--color-blue)]/10 text-[color:var(--color-blue)]">
+        <Icon className="h-5 w-5" />
+      </div>
+      <div className="leading-tight">
+        <div className="text-sm font-semibold text-slate-900">{title}</div>
+        <div className="text-sm text-slate-600">{value}</div>
+      </div>
+    </div>
+  );
+
+  if (!href) return content;
+  return (
+    <a
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      className="block hover:text-[color:var(--color-blue)] transition-colors"
+    >
+      {content}
+    </a>
   );
 }

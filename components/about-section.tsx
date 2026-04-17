@@ -1,90 +1,108 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Award, Users, Clock, Shield } from "lucide-react";
+import { Award, CheckCircle2, Clock, ShieldCheck, Users } from "lucide-react";
 
-const stats = [
-  { icon: Award, label: "Projetos Concluídos", value: "500+" },
-  { icon: Users, label: "Clientes Satisfeitos", value: "300+" },
-  { icon: Clock, label: "Anos de Experiência", value: "10+" },
-  { icon: Shield, label: "Garantia dos Serviços", value: "2 Anos" },
+const highlights = [
+  {
+    icon: Award,
+    title: "Engenheiro CREA",
+    description: "Todos os projetos e laudos com responsável técnico registrado.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Materiais certificados",
+    description: "Trabalhamos com marcas reconhecidas e componentes homologados.",
+  },
+  {
+    icon: Users,
+    title: "Atendimento direto",
+    description: "Sem intermediários: você fala com quem executa o serviço.",
+  },
 ];
 
 export function AboutSection() {
   return (
-    <section id="sobre" className="py-20 bg-muted">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section id="sobre" className="py-20 sm:py-24 bg-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="space-y-6">
-            <div className="space-y-4">
-              <span className="text-primary font-semibold text-sm uppercase tracking-widest">
-                Quem somos
-              </span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground text-balance">
-                Excelência em Engenharia Elétrica
-              </h2>
-              <p className="text-lg text-muted-foreground text-pretty">
-                Somos uma empresa especializada em soluções elétricas com mais
-                de uma década de experiência no mercado. Nossa equipe é formada
-                por engenheiros e técnicos qualificados, registrados no CREA.
-              </p>
-            </div>
+            <span className="text-[color:var(--color-blue)] font-semibold text-xs uppercase tracking-widest">
+              Sobre a 2f
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 text-balance">
+              Mais de 10 anos transformando obras em{" "}
+              <span className="text-gradient-blue">projetos seguros</span>.
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 text-pretty">
+              A 2f Engenharia Elétrica nasceu para oferecer serviços elétricos
+              que unem técnica, segurança e acabamento de qualidade. Atuamos em
+              Santos, Baixada Santista e São Paulo, atendendo residências,
+              condomínios, comércios e indústrias.
+            </p>
 
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-foreground">
-                Por que nos escolher?
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 gold-gradient rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-muted-foreground">
-                    <strong className="text-foreground">
-                      Profissionais Certificados:
-                    </strong>{" "}
-                    Todos os nossos técnicos possuem certificação CREA
-                  </span>
+            <ul className="space-y-4">
+              {highlights.map((h) => (
+                <li key={h.title} className="flex items-start gap-3">
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[color:var(--color-blue)]/10 text-[color:var(--color-blue)]">
+                    <h.icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-slate-900">{h.title}</div>
+                    <p className="text-sm text-slate-600">{h.description}</p>
+                  </div>
                 </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 gold-gradient rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-muted-foreground">
-                    <strong className="text-foreground">
-                      Materiais de Qualidade:
-                    </strong>{" "}
-                    Utilizamos apenas equipamentos de marcas reconhecidas
-                  </span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 gold-gradient rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-muted-foreground">
-                    <strong className="text-foreground">
-                      Atendimento Personalizado:
-                    </strong>{" "}
-                    Cada projeto é único e recebe atenção especial
-                  </span>
-                </li>
-              </ul>
+              ))}
+            </ul>
+
+            <div className="flex flex-wrap gap-2 pt-2">
+              {[
+                "CREA ativo",
+                "Garantia 2 anos",
+                "Orçamento grátis",
+                "Emergência 24h",
+              ].map((t) => (
+                <span
+                  key={t}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700"
+                >
+                  <CheckCircle2 className="h-3.5 w-3.5 text-[color:var(--color-wa)]" />
+                  {t}
+                </span>
+              ))}
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-6">
-            {stats.map((stat, index) => (
-              <Card
-                key={index}
-                className="bg-background border-border hover:border-primary/40 transition-colors text-center p-6"
-              >
-                <CardContent className="space-y-4">
-                  <div className="w-12 h-12 gold-gradient rounded-xl flex items-center justify-center mx-auto">
-                    <stat.icon className="w-6 h-6 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-primary">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {stat.label}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="col-span-2 rounded-3xl bg-[color:var(--color-navy-deep)] text-white p-7 sm:p-9 relative overflow-hidden">
+              <div className="absolute inset-0 bg-navy-grid opacity-60" />
+              <div className="relative">
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
+                  <Award className="h-3.5 w-3.5 text-[color:var(--color-blue-light)]" />
+                  Trajetória
+                </div>
+                <div className="mt-5 text-6xl sm:text-7xl font-extrabold tracking-tight">
+                  500+
+                </div>
+                <div className="mt-2 text-sm text-white/70 max-w-[18rem]">
+                  Projetos residenciais, prediais e comerciais entregues em mais
+                  de uma década de mercado.
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-slate-200 bg-white p-6">
+              <Clock className="h-6 w-6 text-[color:var(--color-blue)]" />
+              <div className="mt-4 text-3xl font-extrabold text-slate-900">
+                10+
+              </div>
+              <div className="text-sm text-slate-500">Anos de experiência</div>
+            </div>
+
+            <div className="rounded-3xl border border-slate-200 bg-white p-6">
+              <Users className="h-6 w-6 text-[color:var(--color-blue)]" />
+              <div className="mt-4 text-3xl font-extrabold text-slate-900">
+                300+
+              </div>
+              <div className="text-sm text-slate-500">Clientes satisfeitos</div>
+            </div>
           </div>
         </div>
       </div>
